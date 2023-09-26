@@ -14,7 +14,7 @@ const FoodSelectionDisplay = () => {
   }, [userId]);
 
   return (
-    <div className="food-selection">
+    <section className="food-selection" id="food-selection">
       <h2>Selected Food for Each Day</h2>
       <div className="food-list">
         {Object.entries(selectedFood).map(([day, foodSelections]) => (
@@ -31,7 +31,7 @@ const FoodSelectionDisplay = () => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

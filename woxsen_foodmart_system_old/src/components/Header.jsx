@@ -25,7 +25,7 @@ const Header = ({ isLoggedIn, onLogout }) => {
             <a href="#about">About Us</a>
           </li>
           <li>
-            <a href="#about">Selected Food</a>
+            <a href="#food-selection">Selected Food</a>
           </li>
           {isLoggedIn && (
             <li>

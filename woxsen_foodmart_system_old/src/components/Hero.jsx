@@ -1,7 +1,7 @@
 import React from "react";
 import "./hero.css";
 import playButton from "./play-circle.svg";
-import img1 from "./food3.jpg"
+import img1 from "./woxsen3.jpg"
 const Hero = () => {
   return (
     <section className="hero">
