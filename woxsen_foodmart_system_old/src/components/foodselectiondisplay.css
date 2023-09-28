@@ -1,97 +1,65 @@
+/* FoodSelectionDisplay.css */
 
+/* Style the food table */
 .food-selection {
-  margin: 20px;
-  padding: 20px;
-  background: linear-gradient(45deg, #fff0de, #b1454a);
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  font-family: Arial, sans-serif;
+  margin-top: 20px;
 }
 
 .food-selection h2 {
-  font-size: 28px;
-  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
   color: #333;
+  margin-bottom: 20px;
+}
+
+.food-table-container {
+  overflow-x: auto;
+}
+
+.food-table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background-color: #fff; /* Table background color */
+}
+
+.food-table th,
+.food-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
   text-align: center;
 }
 
-.food-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Two items per row, minimum width of 300px */
-  gap: 20px;
-}
-
-.food-item {
-  padding: 20px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-}
-
-.food-item:hover {
-  transform: scale(1.05);
-  background-color: #f0f0f0;
-  border-color: #aaa;
-}
-
-.day {
+.food-table th {
+  background-color: #f2f2f2;
+  text-transform: uppercase;
   font-weight: bold;
-  font-size: 18px;
-  margin-bottom: 10px;
   color: #333;
-  text-transform: uppercase; 
 }
 
-
-.day::before {
-  content: attr(data-day); 
-  display: block;
-  color: #007bff; 
-}
-
-.not-selected {
-  color: #888;
-  font-style: italic;
-}
-
-
-.food-item {
-  margin-bottom: 20px;
-}
-
-.food-list {
-  font-size: 18px;
-  line-height: 1.6;
+.food-table td {
+  background-color: #fff;
+  font-size: 16px; /* Font size for table data */
   color: #555;
 }
 
-
-.food-item:nth-child(even) {
-  background-color: #f9f9f9;
+.food-table tr:nth-child(even) {
+  background-color: #f2f2f2;
 }
 
-.food-item:nth-child(odd) {
-  background-color: #f6f6f6;
+.food-table tr:hover {
+  background-color: #ddd;
 }
 
-
-.food-item {
-  border: 1px solid #ddd;
+/* Style each food item */
+.food-item td {
+  font-size: 18px;
+  color: #555;
+  padding: 10px; /* Add consistent spacing for all meal types */
 }
 
-
-.day {
-  text-align: center;
-}
-
-
-.food-item.selected {
-  background-color: #dff0d8; 
-  border-color: #3c763d; 
-  color: #3c763d; 
+/* Add spacing between days */
+.food-item + .food-item {
+  margin-top: 20px;
 }

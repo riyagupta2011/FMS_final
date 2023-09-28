@@ -124,6 +124,7 @@ const FoodComponent = () => {
       console.error("Error saving food selection:", error);
     }
     setSubmitted(true);
+    
   };
   useEffect(() => {
     const today = new Date();
@@ -887,7 +888,7 @@ const FoodComponent = () => {
   return (
     <section id="food" className="food">
       <h2 className="head">Food Menu</h2>
-      {/* Add the dropdown list */}
+    
       <div className="selected-date">
         {selectedDate && <p>Selected Date: {selectedDate}</p>}
       </div>
@@ -953,60 +954,67 @@ const FoodComponent = () => {
           <p>{savedMessage}</p>
         </div>
       ) : (
+        
         <div className="food-description">
-          {selectedMeal === "breakfast" && (
-            <div>
-              <div className="meal-cards">
-                {mealDescription.meals.map((meal, index) => (
-                  <div
-                    className={`meal-card ${
-                      selectedMeal === "breakfast" ? "active" : ""
-                    }`}
-                    key={index}
-                  >
-                    <div className="meal-card__info">
-                      <h4>{meal.name}</h4>
+          
+{selectedMeal === "breakfast" && (
+  <div>
+    {selectedDays.includes(selectedDay) ? (
+      <p>Food is already selected for this day.</p>
+    ) : (
+      <>
+        <div className="meal-cards">
+          {mealDescription.meals.map((meal, index) => (
+            <div
+              className={`meal-card ${
+                selectedMeal === "breakfast" ? "active" : ""
+              }`}
+              key={index}
+            >
+              <div className="meal-card__info">
+                <h4>{meal.name}</h4>
 
-                      {/* Modify the condition to show buttons for all meals */}
-                      {meal.options && meal.options.length > 0 && (
-                        <div className="options-buttons">
-                          <h5
-                            style={{ color: "GrayText", marginBottom: "5px" }}
-                          >
-                            Choose among them
-                          </h5>
-                          {meal.options.map((option, optionIndex) => (
-                            <button
-                              key={optionIndex}
-                              className={`option-button ${
-                                selectedBreakfastVarieties.includes(option.name)
-                                  ? "active"
-                                  : ""
-                              }`}
-                              onClick={() =>
-                                handleVarietyChange(meal.name, option.name)
-                              }
-                            >
-                              {option.name}
-                            </button>
-                          ))}
-                        </div>
-                      )}
-
-                      {selectedMeal !== "breakfast" &&
-                        (!meal.options || meal.options.length === 0) && (
-                          <p>{meal.description}</p>
-                        )}
-                    </div>
+                {/* Modify the condition to show buttons for all meals */}
+                {meal.options && meal.options.length > 0 && (
+                  <div className="options-buttons">
+                    <h5
+                      style={{ color: "GrayText", marginBottom: "5px" }}
+                    >
+                      Choose among them
+                    </h5>
+                    {meal.options.map((option, optionIndex) => (
+                      <button
+                        key={optionIndex}
+                        className={`option-button ${
+                          selectedBreakfastVarieties.includes(option.name)
+                            ? "active"
+                            : ""
+                        }`}
+                        onClick={() =>
+                          handleVarietyChange(meal.name, option.name)
+                        }
+                      >
+                        {option.name}
+                      </button>
+                    ))}
                   </div>
-                ))}
-              </div>
+                )}
 
-              <button className="next" onClick={() => setSelectedMeal("lunch")}>
-                Next
-              </button>
+                {selectedMeal !== "breakfast" &&
+                  (!meal.options || meal.options.length === 0) && (
+                    <p>{meal.description}</p>
+                  )}
+              </div>
             </div>
-          )}
+          ))}
+        </div>
+        <button className="next" onClick={() => setSelectedMeal("lunch")}>
+          Next
+        </button>
+      </>
+    )}
+  </div>
+)}
 
           {selectedMeal === "lunch" && (
             <div>
@@ -1065,10 +1073,8 @@ const FoodComponent = () => {
               </button>
             </div>
           )}
-          {selectedDays.includes(selectedDay) ? (
-            <p>Already selected for this day</p>
-          ) : (
-            <>
+         
+           
               {selectedMeal === "dinner" && (
                 <div>
                   <div className="meal-cards">
@@ -1128,8 +1134,8 @@ const FoodComponent = () => {
                   </button>
                 </div>
               )}
-            </>
-          )}
+            
+         
         </div>
       )}
     </section>
